@@ -1,21 +1,49 @@
-# MessageDb
+# Message DB
 
-**TODO: Add description**
+For more information about **Message DB**, see: https://github.com/message-db.
+
+This is a set of tasks to install Message DB from source. Inspired by the other language-specific
+packages such as https://github.com/message-db/ruby-gem.
 
 ## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `message_db` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:message_db, "~> 0.1.0"}
+    {:message_db, "~> 0.0", github: "nicholasjhenry/ex-message-db"}
   ]
 end
 ```
+## Usage
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/message_db](https://hexdocs.pm/message_db).
+Clone the message-db source:
 
+    git clone https://github.com/message-db/message-db.git
+
+Sym-link database scripts:
+
+    # assumes src directory is named `message-db`
+    # consider the path from ./priv
+    mix message_db.symlink_database_scripts -h path/to/
+
+Install Message DB:
+
+    PGUSER=postgres PGPASSWORD=postgres PGHOST=localhost mix message_db.create_db
+
+Delete Message DB:
+
+    PGUSER=postgres PGPASSWORD=postgres PGHOST=localhost mix message_db.delete_db
+
+## Message DB Scripts
+
+    DATABASE_USER=postgres PGPASSWORD=postgres PGHOST=localhost priv/database/print-messages.sh
+
+## Common Issues
+
+You cannot create users/roles on Heroku therefore the following functions and scripts will fail
+to execute, they need to be removed in `install.sh`:
+
+* `create-user`; actually creates a role
+* `install-privileges`; otherwise `ERROR:  role "message_store" does not exist`
+
+For more info on the user role, see: https://github.com/message-db/message-db#userrole.
