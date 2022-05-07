@@ -8,3 +8,4 @@ erl_crash.dump
 message_db-*.tar
 /tmp
 database
+.env
