@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.MessageDb do
+defmodule Mix.Tasks.Mdb do
   defmodule CreateDb do
     use Mix.Task
 

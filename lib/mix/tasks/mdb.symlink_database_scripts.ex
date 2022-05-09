@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.MessageDb.SymlinkDatabaseScripts do
+defmodule Mix.Tasks.Mdb.SymlinkDatabaseScripts do
   use Mix.Task
 
   @shortdoc "Symlinks the database scripts"
@@ -20,8 +20,8 @@ defmodule Mix.Tasks.MessageDb.SymlinkDatabaseScripts do
 
   ## Examples
 
-      $ mix message_db.symlink_database_scripts -h ..
-      $ mix message_db.symlink_database_scripts -h ..-s scripts
+      $ mix mdb.symlink_database_scripts -h ..
+      $ mix mdb.symlink_database_scripts -h ..-s scripts
 
   ## Command line options
 

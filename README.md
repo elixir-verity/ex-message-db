@@ -22,7 +22,7 @@ Clone the message-db source (recommended to be located as a sibling to your appl
 
 Sym-link database scripts (in your application):
 
-    mix message_db.symlink_database_scripts --home $PWD/..
+    mix mdb.symlink_database_scripts --home $PWD/..
 
 Verify symlink:
 
@@ -30,11 +30,11 @@ Verify symlink:
 
 Install Message DB:
 
-    PGUSER=postgres PGPASSWORD=postgres PGHOST=localhost mix message_db.create_db
+    PGUSER=postgres PGPASSWORD=postgres PGHOST=localhost mix mdb.create_db
 
 Delete Message DB:
 
-    PGUSER=postgres PGPASSWORD=postgres PGHOST=localhost mix message_db.delete_db
+    PGUSER=postgres PGPASSWORD=postgres PGHOST=localhost mix mdb.delete_db
 
 ## Message DB Scripts
 
