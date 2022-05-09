@@ -16,15 +16,17 @@ end
 ```
 ## Usage
 
-Clone the message-db source:
+Clone the message-db source (recommended to be located as a sibling to your application):
 
     git clone https://github.com/message-db/message-db.git
 
-Sym-link database scripts:
+Sym-link database scripts (in your application):
 
-    # assumes src directory is named `message-db`
-    # consider the path from ./priv
-    mix message_db.symlink_database_scripts -h path/to/
+    mix message_db.symlink_database_scripts --home $PWD/..
+
+Verify symlink:
+
+    ls priv/database/
 
 Install Message DB:
 

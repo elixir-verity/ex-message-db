@@ -1,7 +1,6 @@
 defmodule MessageDb do
   def run(script, env \\ [], opts \\ []) do
-    path = Keyword.get(opts, :path, Path.join([Application.app_dir(:message_db), "priv"]))
-
+    path = path(opts)
     system_opts = [
       cd: path,
       env: env,
@@ -9,6 +8,12 @@ defmodule MessageDb do
       into: IO.stream(:stdio, :line)
     ]
 
+    Mix.shell().info("Running database scripts in #{path}...")
     System.cmd("bash", ["database/#{script}.sh"], system_opts)
+  end
+
+  defp path(opts) do
+    cwd = File.cwd!()
+    Keyword.get(opts, :path, Path.join([cwd, "priv"]))
   end
 end
