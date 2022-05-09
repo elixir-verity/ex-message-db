@@ -10,7 +10,7 @@ packages such as https://github.com/message-db/ruby-gem.
 ```elixir
 def deps do
   [
-    {:message_db, "~> 0.0", github: "nicholasjhenry/ex-message-db"}
+    {:message_db, "~> 0.0", github: "elixir-verity/ex-message-db"}
   ]
 end
 ```
