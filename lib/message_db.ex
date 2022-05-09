@@ -1,6 +1,7 @@
 defmodule MessageDb do
   def run(script, env \\ [], opts \\ []) do
     path = path(opts)
+
     system_opts = [
       cd: path,
       env: env,
